@@ -17,8 +17,11 @@ scripts you can can start ceph-fuse by just passing:
     ceph-fuse /data
 
 ### Note 1
-You need to add extra sys-capabilities to use fuse. Until I've figured out
-which ones exactly, run it with `--privileged`.
+You need to add extra sys-capabilities to use fuse. You can always run it with
+`--privileged`. However this should be avoided, to run with a more restricted
+set use:
+
+    --cap-add mknod --cap-add sys_admin --device=/dev/fuse
 
 ### Note 2
 Thea idea was to share a mounted directory and share it via Docker's volume's
